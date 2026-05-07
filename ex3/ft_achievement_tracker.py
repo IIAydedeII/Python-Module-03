@@ -20,7 +20,7 @@ ACHIEVEMENTS = [
 
 
 def gen_player_achievements() -> set[str]:
-    amount = random.randrange(1, ACHIEVEMENTS.__len__())
+    amount = random.randrange(1, len(ACHIEVEMENTS))
     return set(random.sample(ACHIEVEMENTS, k=amount))
 
 
@@ -36,7 +36,10 @@ def main() -> None:
         print(f"Player {player}:", achievements[player])
     print("")
 
-    print("Common achievements:", set.intersection(*achievements.values()))
+    print(
+        "Common achievements:",
+        set.intersection(*(achievements[player] for player in players)),
+    )
     print("")
 
     for player in players:
@@ -47,7 +50,7 @@ def main() -> None:
         )
     print("")
 
-    total = set.union(*achievements.values())
+    total = set.union(*(achievements[player] for player in players))
     for player in players:
         print(
             f"{player} is missing:",
