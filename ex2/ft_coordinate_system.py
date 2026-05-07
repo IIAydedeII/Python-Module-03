@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import math
 
+Vec3 = tuple[float, float, float]
 
-def get_player_pos() -> tuple[float, float, float]:
+
+def get_player_pos() -> Vec3:
     while True:
         string = input("Enter new coordinates as floats in format 'x,y,z': ")
         parts = string.split(",")
@@ -24,9 +26,7 @@ def get_player_pos() -> tuple[float, float, float]:
             return coords[0], coords[1], coords[2]
 
 
-def calc_distance(
-    first: tuple[float, float, float], second: tuple[float, float, float]
-) -> float:
+def calc_distance(first: Vec3, second: Vec3) -> float:
     return math.sqrt(
         (second[0] - first[0]) ** 2
         + (second[1] - first[1]) ** 2
