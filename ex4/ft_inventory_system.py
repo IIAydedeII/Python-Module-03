@@ -2,8 +2,8 @@
 import sys
 
 
-class RedundantError(Exception):
-    pass
+class RedundantItemError(ValueError):
+    """Raised when an item is specified more than once."""
 
 
 def main() -> None:
@@ -16,12 +16,12 @@ def main() -> None:
         try:
             item_name, quantity = arg.split(":")
             if item_name in items:
-                raise RedundantError
+                raise RedundantItemError
+        except RedundantItemError:
+            print(f"Redundant item '{item_name}' - discarding")
+            continue
         except ValueError:
             print(f"Error - invalid parameter '{arg}'")
-            continue
-        except RedundantError:
-            print(f"Redundant item '{item_name}' - discarding")
             continue
 
         try:
