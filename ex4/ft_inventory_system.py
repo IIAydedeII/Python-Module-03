@@ -59,11 +59,11 @@ def main() -> None:
 
         print(
             "Item most abundant:",
-            f"{extremes["most"][0]} with quantity {extremes["most"][1]}",
+            f"{extremes['most'][0]} with quantity {extremes['most'][1]}",
         )
         print(
             "Item least abundant:",
-            f"{extremes["least"][0]} with quantity {extremes["least"][1]}",
+            f"{extremes['least'][0]} with quantity {extremes['least'][1]}",
         )
 
     items.update({"magic_item": 1})
