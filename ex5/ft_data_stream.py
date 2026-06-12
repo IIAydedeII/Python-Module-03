@@ -4,8 +4,8 @@ import random
 
 Event = tuple[str, str]
 
-PLAYERS: list[str] = ["alice", "bob", "charlie", "dylan"]
-ACTIONS: list[str] = [
+PLAYERS = ["alice", "bob", "charlie", "dylan"]
+ACTIONS = [
     "run",
     "eat",
     "sleep",
