@@ -32,7 +32,7 @@ def main() -> None:
 
     for arg in args:
         try:
-            scores.append(int(arg))
+            scores.append(float(arg))
         except ValueError:
             print(f"Invalid parameter: '{arg}'")
 
