@@ -42,17 +42,16 @@ def main() -> None:
             "least": ("", 0),
         }
 
-        first = True
         for item, amount in items.items():
-            if first:
+            if not extremes["most"][0]:
                 extremes["most"] = extremes["least"] = (item, amount)
-                first = False
-            else:
-                if amount > extremes["most"][1]:
-                    extremes["most"] = (item, amount)
+                continue
 
-                if amount < extremes["least"][1]:
-                    extremes["least"] = (item, amount)
+            if amount > extremes["most"][1]:
+                extremes["most"] = (item, amount)
+
+            if amount < extremes["least"][1]:
+                extremes["least"] = (item, amount)
 
             item_share = amount / items_total
             print(f"Item {item} represents {item_share:.1%}")
