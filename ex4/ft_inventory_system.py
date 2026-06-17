@@ -37,32 +37,32 @@ def main() -> None:
         print("Item list:", item_list)
         print(f"Total quantity of the {len(item_list)} items:", items_total)
 
-        extremes = {
-            "most": ("", 0),
-            "least": ("", 0),
-        }
+        most_item = least_item = None
+        most_amount = least_amount = 0
 
         for item, amount in items.items():
-            if not extremes["most"][0]:
-                extremes["most"] = extremes["least"] = (item, amount)
-                continue
+            if most_item is None:
+                most_item = least_item = item
+                most_amount = least_amount = amount
 
-            if amount > extremes["most"][1]:
-                extremes["most"] = (item, amount)
+            if amount > most_amount:
+                most_item = item
+                most_amount = amount
 
-            if amount < extremes["least"][1]:
-                extremes["least"] = (item, amount)
+            if amount < least_amount:
+                least_item = item
+                least_amount = amount
 
             item_share = amount / items_total
             print(f"Item {item} represents {item_share:.1%}")
 
         print(
-            "Item most abundant:",
-            f"{extremes['most'][0]} with quantity {extremes['most'][1]}",
+            f"Item most abundant: {most_item}",
+            f"with quantity {most_amount}",
         )
         print(
-            "Item least abundant:",
-            f"{extremes['least'][0]} with quantity {extremes['least'][1]}",
+            f"Item least abundant: {least_item}",
+            f"with quantity {least_amount}",
         )
 
     items.update({"magic_item": 1})
