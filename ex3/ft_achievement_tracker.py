@@ -26,7 +26,7 @@ def gen_player_achievements() -> set[str]:
 
 def main() -> None:
     print("=== Achievement Tracker System ===")
-    print("")
+    print()
 
     players = ["Alice", "Bob", "Charlie", "Dylan"]
     achievements: dict[str, set[str]] = {player: set() for player in players}
@@ -34,13 +34,13 @@ def main() -> None:
     for player in players:
         achievements[player] = gen_player_achievements()
         print(f"Player {player}:", achievements[player])
-    print("")
+    print()
 
     print(
         "Common achievements:",
         set.intersection(*(achievements[player] for player in players)),
     )
-    print("")
+    print()
 
     for player in players:
         others = (achievements[p] for p in players if p != player)
@@ -48,7 +48,7 @@ def main() -> None:
             f"Only {player} has:",
             achievements[player].difference(*others),
         )
-    print("")
+    print()
 
     total = set.union(*(achievements[player] for player in players))
     for player in players:

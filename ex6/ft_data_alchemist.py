@@ -16,7 +16,7 @@ PLAYERS = [
 
 def main() -> None:
     print("=== Game Data Alchemist ===")
-    print("")
+    print()
 
     players_capitalized = [player.capitalize() for player in PLAYERS]
     capitalized_players = [
@@ -26,7 +26,7 @@ def main() -> None:
     print("Initial list of players:", PLAYERS)
     print("New list with all names capitalized:", players_capitalized)
     print("New list of capitalized names only:", capitalized_players)
-    print("")
+    print()
 
     scores = {player: random.randrange(999) for player in players_capitalized}
     average = round(sum(scores.values()) / len(scores), 2)
