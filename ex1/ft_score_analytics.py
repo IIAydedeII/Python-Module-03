@@ -3,7 +3,7 @@ import sys
 
 
 class Stats:
-    def __init__(self, scores: list[int]) -> None:
+    def __init__(self, scores: list[float]) -> None:
         self._scores = scores
         self._total_players = len(scores)
         self._total_score = sum(scores)
